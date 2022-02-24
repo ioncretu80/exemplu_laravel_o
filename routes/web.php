@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ErstController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 
 //Route::get('/erst',"App\Http\Controllers\ErstController@Index" );
 Route::get('/erst',[ErstController::class,'index'] );
+
+Route::get('/posts',[PostController::class,'index'] );
