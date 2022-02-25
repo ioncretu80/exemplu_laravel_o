@@ -8,10 +8,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        $post = Post::where('is_publisched', 1)->first();
-
-        dd("post.index");
-        return "posts.index";
+        $posts = Post::all();
+        return view("post", compact('posts'));
     }
 
     public function create()
