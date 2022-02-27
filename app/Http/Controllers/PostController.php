@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+//        $category = Category::find(1);
+//        dd($category->posts);
+        $post = Post::find(1);
+        dd($post->category->id);
+
+        $posts = Post::where('category_id', $category->id)->get();
+
+
+
+        dd($posts);
         return view("post.index", compact('posts'));
     }
 
