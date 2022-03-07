@@ -13,6 +13,8 @@ class PostController extends Controller
 {
     public function index()
     {
+
+
 //        $category = Category::find(1);
 //        dd($category->posts);
 //        $post = Post::find(1);
@@ -26,8 +28,10 @@ class PostController extends Controller
 //
 //
 //        dd($posts);
-        $posts = Post::all();
-
+        $post = Post::find(3);
+        $category = Category::find(2);
+        $tag = Tag::find(3);
+        dd($post->tags);
         return view("post.index", compact('posts'));
     }
 
