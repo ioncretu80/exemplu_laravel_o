@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ErstController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\Post\IndexController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,15 +26,18 @@ Route::get('/', function () {
 //Route::get('/erst',"App\Http\Controllers\ErstController@Index" );
 Route::get('/erst',[ErstController::class,'index'] );
 
+//Route::group(['namespace'=>'App\Http\Controllers\Post'],function (){
+Route::group(['namespace'=>'App\Http\Controllers\Post'],function (){
+    Route::get('/posts','IndexController')->name('post.index');
+    Route::get('/posts/create','CreateController')->name('post.create');
+    Route::post('/posts','StoreController')->name('post.store');
+    Route::get('/posts/{post}','ShowController')->name('post.show');
+    Route::get('/posts/{post}/edit','EditController')->name('post.edit');
+    Route::patch('/posts/{post}','UpdateController')->name('post.update');
+    Route::delete('/posts/{post}','DeleteController')->name('post.delete');
+});
 
 
-Route::get('/posts',[PostController::class,'index'] )->name('post.index');
-Route::get('/posts/create',[PostController::class,'create'])->name('post.create');
-Route::post('/posts',[PostController::class,'store'] )->name('post.store');
-Route::get('/posts/{post}',[PostController::class,'show'] )->name('post.show');
-Route::get('/posts/{post}/edit',[PostController::class,'edit'] )->name('post.edit');
-Route::patch('/posts/{post}',[PostController::class,'update'] )->name('post.update');
-Route::delete('/posts/{post}',[PostController::class,'delete'] )->name('post.delete');
 
 
 

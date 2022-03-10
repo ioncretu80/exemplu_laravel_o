@@ -11,70 +11,69 @@ use App\Models\Tag;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-
-
-//        $category = Category::find(1);
-//        dd($category->posts);
-//        $post = Post::find(1);
-//        dd($post->tags->count());
-
+//    public function index()
+//    {
+//
+//
+////        $category = Category::find(1);
+////        dd($category->posts);
+////        $post = Post::find(1);
+////        dd($post->tags->count());
+//
+////        $tag = Tag::find(3);
+////        dd($tag->posts);
+//
+////        $posts = Post::where('category_id', $category->id)->get();
+////
+////
+////
+////        dd($posts);
+//        $posts = Post::all();
+//        $category = Category::find(2);
 //        $tag = Tag::find(3);
-//        dd($tag->posts);
+//
+//        return view("post.index", compact('posts'));
+//    }
 
-//        $posts = Post::where('category_id', $category->id)->get();
+//    public function create()
+//    {
+//        $categories = Category::all();
+//        $tags = Tag::all();
+//        return view('post.create', compact('categories', 'tags'));
+//    }
+
+//    public function store()
+//    {
+//
+//        $data = request()->validate(
+//            ['title'=>'required|string',
+//            'content'=>'string',
+//            'image'=>'string',
+//                'category_id'=>'',
+//                'tags'=>'',
+//            ]
+//
+//        );
+//;
+//            $tags = $data['tags'];
+//            unset($data['tags']);
 //
 //
 //
-//        dd($posts);
-        $post = Post::find(3);
-        $category = Category::find(2);
-        $tag = Tag::find(3);
-        dd($post->tags);
-        return view("post.index", compact('posts'));
-    }
-
-    public function create()
-    {
-        $categories = Category::all();
-        $tags = Tag::all();
-
-        return view('post.create', compact('categories', 'tags'));
-    }
-
-    public function store()
-    {
-
-        $data = request()->validate(
-            ['title'=>'required|string',
-            'content'=>'string',
-            'image'=>'string',
-                'category_id'=>'',
-                'tags'=>'',
-            ]
-
-        );
-;
-            $tags = $data['tags'];
-            unset($data['tags']);
-
-
-
-        $post = Post::create($data);
-//       prima metoda
-//        foreach ($tags as $tag){
-//            PostTag::firstOrcreate(
-//                [
-//                    "tag_id"=>$tag,
-//                    "post_id"=>$post->id]
-//            );
-//        }
-//metoda 2
-       $post->tags()->attach($tags);
-
-        return redirect()->route('post.index');
-    }
+//        $post = Post::create($data);
+////       prima metoda
+////        foreach ($tags as $tag){
+////            PostTag::firstOrcreate(
+////                [
+////                    "tag_id"=>$tag,
+////                    "post_id"=>$post->id]
+////            );
+////        }
+////metoda 2
+//       $post->tags()->attach($tags);
+//
+//        return redirect()->route('post.index');
+//    }
 
     public function show(Post $post){
 
