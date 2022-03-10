@@ -24,7 +24,7 @@
             <td>{{$post->content}}</td>
             <td>{{$post->image}}</td>
             <td>{{$post->likes}}</td>
-            <td>{{$post->is_publisched}}</td>
+            <td style="text-align: center">{{$post->is_published}}</td>
 
         </tr>
         @endforeach

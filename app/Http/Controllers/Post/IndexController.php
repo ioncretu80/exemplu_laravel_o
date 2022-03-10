@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Post;
 
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\PostTag;
 
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function __invoke()
     {
