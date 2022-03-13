@@ -28,7 +28,12 @@
 
         </tr>
         @endforeach
-        </tbody>
+
     </table>
+
+    <div class="mt-10">
+        {{$posts->links()}}
+    </div>
+    </tbody>
 </div>
 @endsection
