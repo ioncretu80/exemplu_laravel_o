@@ -32,7 +32,7 @@
     </table>
 
     <div class="mt-10">
-        {{$posts->links()}}
+        {{$posts->withQueryString()->links()}}
     </div>
     </tbody>
 </div>
