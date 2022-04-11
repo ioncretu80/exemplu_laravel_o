@@ -19,9 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/', 'App\Http\Controllers\HomeController@index');
+
 
 //Route::get('/erst',"App\Http\Controllers\ErstController@Index" );
 Route::get('/erst',[ErstController::class,'index'] );
@@ -57,3 +58,7 @@ Route::get('/posts/firstorcreate',[PostController::class,'firstOrCreate'] );
 Route::get('/main',[MainController::class,'index'] )->name('main.index');;
 Route::get('/contacts',[ContactController::class,'index'])->name('contact.index');;
 Route::get('/about',[AboutController::class,'index'])->name('about.index');;
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
